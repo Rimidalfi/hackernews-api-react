@@ -6,7 +6,7 @@ export default function NewsGuidelines() {
     return (
       <div style={myStyle}>
         <h1>Guidelines</h1>
-        <p>Guidelines comming soon</p>
+        <p>Guidelines coming soon</p>
       </div>
     );
   }

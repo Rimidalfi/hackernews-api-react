@@ -3,15 +3,20 @@ import Homepage from "./components/Pages/Homepage";
 import "./App.css";
 import { Component } from "react";
 import { useState } from "react";
+import React from "react";
 
 function App() {
 
-  const [mainComponent,setMainComponent] = useState(Homepage);
+  const [mainComponent,setMainComponent] = useState({page:<Homepage/>});
+
+  //const mainComp = React.cloneElement(mainComponent);
+
+  const mainComp = mainComponent.page
 
   return (
     <>
       <MainLayout setMainComponent={setMainComponent}>
-        {mainComponent}
+        {mainComp}
       </MainLayout>
     </>
   );

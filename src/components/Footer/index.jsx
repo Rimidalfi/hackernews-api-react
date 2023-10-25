@@ -4,6 +4,7 @@ import Links from "../Pages/Links";
 import NewsFAQ from "../Pages/NewsFAQ";
 import NewsGuidelines from "../Pages/NewsGuidelines";
 import Security from "../Pages/Security";
+import React from "react";
 
 
 
@@ -25,7 +26,8 @@ export default function Footer({setMainComponent}) {
 
     function switchToLinks()
     {
-      setMainComponent(Links)
+      const component = React.cloneElement(<Links/>,{myName:"Tilo"})
+      setMainComponent({page:component})
     }
 
 
@@ -33,8 +35,7 @@ export default function Footer({setMainComponent}) {
     <>
 
 
-      <table width="100%" cellspacing="0" cellpadding="1"><tbody><tr><td bgcolor="#ff6600"></td></tr></tbody>
-      </table>
+
       <div>
         <span>
         <ul>
@@ -60,7 +61,7 @@ export default function Footer({setMainComponent}) {
       </br>
       <form method="get" action="//hn.algolia.com/">
         Search: 
-      <input type="text" name="q" size="17" autocorrect="off" spellcheck="false" autocapitalize="off" autocomplete="false"/>
+      <input type="text" name="q" size="17"/>
 
       </form>
       </div>

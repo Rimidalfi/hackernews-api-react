@@ -1,17 +1,65 @@
+import Story from "./API/Story";
 import "./Pages.css"
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Homepage() {
+
+  const [frontpageIDs,setFrontpageIDs] = useState([]);
+  const [pageNumber,setPageNumber] = useState(0);
+
+  console.log("FP USESTATE:" , frontpageIDs);
+
+  let fp_ids =[];
+  //getFrontpageIDs();
+  useEffect(() => {
+    getFrontpageIDs();
+  },[]);
+
+
+  async function getFrontpageIDs() // Gibt Array mit IDs zurück
+  {
+    const response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
+    console.log(response);
+
+    const data = await response.json();
+    console.log('Data: ${data} ' , data);
+
+    //frontpageIDs.concat(data);
+    setFrontpageIDs(data);
+    fp_ids = data;
+    console.log("In Async");
+
+
+    //return data;
+  }
+
+  console.log("Nach Async");
+
+
+  //const frontpageIDs = [];
+  //getFrontpageIDs();
+
+  
+
+
+
+
   return (
     <div>
-      
-     {/* <table border="0" cellPadding="0" cellSpacing="0" >
-      <tbody>
-      <tr className='athing' id='38002752'>
-      <td align="right" valign="top" className="title"><span className="rank">1.</span></td>      <td valign="top" className="votelinks"><center><a id='up_38002752'href='vote?id=38002752&amp;how=up&amp;goto=news'><div className='votearrow' title='upvote'></div></a></center></td><td className="title"><span className="titleline"><a href="https://www.reuters.com/business/autos-transportation/california-suspends-gm-cruises-driverless-autonomous-vehicle-permits-2023-10-24/" rel="noreferrer">California suspends Cruise&#x27;s autonomous vehicle deployment</a><span className="sitebit comhead"> (<a href="from?site=reuters.com"><span className="sitestr">reuters.com</span></a>)</span></span></td></tr><tr><td colspan="2"></td><td className="subtext"><span className="subline">
-          <span className="score" id="score_38002752">696 points</span> by <a href="user?id=ra7" className="hnuser">ra7</a> <span className="age" title="2023-10-24T17:55:33"><a href="item?id=38002752">9 hours ago</a></span> <span id="unv_38002752"></span> | <a href="hide?id=38002752&amp;goto=news">hide</a> | <a href="item?id=38002752">867&nbsp;comments</a>        </span>
-              </td></tr>
-      </tbody>
-     </table> */}
+      Homepage
+      <Story id={1000}></Story>
+      {frontpageIDs.map((id) => {
+        return <Story key = {id} id={id}/>
+
+
+
+      })}
     </div>
   );
 }
+
+
+
+
+

@@ -1,11 +1,34 @@
-export default function Header() {
+import Homepage from "../Pages/Homepage";
+import React from "react";
+
+
+export default function Header({setMainComponent}) {
   const myStyle = {
     border: "2px solid red",
     backgroundColor: "DodgerBlue",
   };
+
+
+  function switchToHomepage()
+  {
+    const component = React.cloneElement(<Homepage/>,{myName:"blah"}) //Add prop
+    setMainComponent({page:component})
+  }
   return (
     <>
-      <h1 style={myStyle}>Header</h1>
+
+
+
+      <div>
+        <span>
+        <ul>
+          <a name="Lists" onClick={switchToHomepage}>Homepage</a>
+        </ul>
+        </span>
+
+      </div>
+
+
     </>
   );
 }

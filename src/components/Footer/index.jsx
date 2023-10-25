@@ -1,6 +1,6 @@
 import Homepage2 from "../Pages/Homepage2";
 import Homepage from "../Pages/Homepage";
-import Links from "../Pages/Links";
+import Lists from "../Pages/Lists";
 import NewsFAQ from "../Pages/NewsFAQ";
 import NewsGuidelines from "../Pages/NewsGuidelines";
 import Security from "../Pages/Security";
@@ -24,9 +24,9 @@ export default function Footer({setMainComponent}) {
       setMainComponent(Homepage2)
     }
 
-    function switchToLinks()
+    function switchToLists()
     {
-      const component = React.cloneElement(<Links/>,{myName:"Tilo"})
+      const component = React.cloneElement(<Lists/>,{myName:"Tilo"}) //Add prop
       setMainComponent({page:component})
     }
 
@@ -34,26 +34,24 @@ export default function Footer({setMainComponent}) {
   return (
     <>
 
-
-
       <div>
         <span>
         <ul>
-          <a name="Guidelines" onClick={()=> setMainComponent(NewsGuidelines)}>Guidelines</a>
+          <a name="Guidelines" onClick={()=> setMainComponent({page:<NewsGuidelines/>})}>Guidelines</a>
           <span> | </span> 
-          <a name="FAQ" onClick={()=> setMainComponent(NewsFAQ)}>FAQ</a>
+          <a name="FAQ" onClick={()=> setMainComponent({page:<NewsFAQ/>})}>FAQ</a>
           <span> | </span> 
-          <a name="Lists" onClick={switchToLinks}>Lists</a>
+          <a name="Lists" onClick={switchToLists}>Lists</a>
           <span> | </span> 
           <a name="API" href="https://github.com/HackerNews/API" onClick={switchToHP1}>API</a>
           <span> | </span> 
-          <a name="Security" onClick={()=> setMainComponent(Security)}>Security</a>
+          <a name="Security" onClick={()=> setMainComponent({page:<Security/>})}>Security</a>
           <span> | </span> 
-          <a name="Legal" href="https://www.ycombinator.com/legal/" onClick={switchToLinks}>Legal</a>
+          <a name="Legal" href="https://www.ycombinator.com/legal/" onClick={switchToLists}>Legal</a>
           <span> | </span> 
-          <a name="ApplytoYC" href="https://www.ycombinator.com/apply/" onClick={switchToLinks}>Apply to YC</a>
+          <a name="ApplytoYC" href="https://www.ycombinator.com/apply/" onClick={switchToLists}>Apply to YC</a>
           <span> | </span> 
-          <a name="Contact" href="mailto:hn@ycombinator.com" onClick={switchToLinks}>Contact</a>
+          <a name="Contact" href="mailto:hn@ycombinator.com" onClick={switchToLists}>Contact</a>
 
         </ul>
         </span>

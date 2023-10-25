@@ -33,8 +33,7 @@ export default function Footer({setMainComponent}) {
     <>
 
 
-      <table width="100%" cellspacing="0" cellpadding="1"><tbody><tr><td bgcolor="#ff6600"></td></tr></tbody>
-      </table>
+
       <div>
         <span>
         <ul>
@@ -60,7 +59,7 @@ export default function Footer({setMainComponent}) {
       </br>
       <form method="get" action="//hn.algolia.com/">
         Search: 
-      <input type="text" name="q" size="17" autocorrect="off" spellcheck="false" autocapitalize="off" autocomplete="false"/>
+      <input type="text" name="q" size="17"/>
 
       </form>
       </div>

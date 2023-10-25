@@ -1,5 +1,8 @@
 export default function Story({id})
 {
+    return(
+    <div>{id}</div>
+    );
 
 
     async function fetchStuff() {

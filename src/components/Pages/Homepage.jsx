@@ -11,16 +11,15 @@ export default function Homepage() {
   console.log("FP USESTATE:" , frontpageIDs);
 
   let fp_ids =[];
-  //getFrontpageIDs();
   useEffect(() => {
     getFrontpageIDs();
   },[]);
 
 
-  async function getFrontpageIDs() // Gibt Array mit IDs zurück
+  async function getFrontpageIDs()
   {
     const response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
-    console.log(response);
+    console.log('Response' , response);
 
     const data = await response.json();
     console.log('Data: ${data} ' , data);
@@ -30,17 +29,15 @@ export default function Homepage() {
     fp_ids = data;
     console.log("In Async");
 
-
     //return data;
   }
 
   console.log("Nach Async");
 
-
-  //const frontpageIDs = [];
-  //getFrontpageIDs();
-
-  
+  function showMore()
+  {
+    setPageNumber((prev) => prev+1);
+  }
 
 
 
@@ -48,13 +45,20 @@ export default function Homepage() {
   return (
     <div>
       Homepage
-      <Story id={1000}></Story>
-      {frontpageIDs.map((id) => {
-        return <Story key = {id} id={id}/>
+      <br/>
+      <br/>
+      {frontpageIDs.slice(pageNumber*30,pageNumber*30+30).map((id,index) => {
+        return (
+          <span key={'storycontainer'+id}>
+            <span>
+              {pageNumber*30 + index +1}
+            </span>
 
-
-
+          <Story key={id} id={id}/>
+          </span>
+        )
       })}
+       <a name="more" onClick={() => {showMore()}}>More</a>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export default function Links({myName}) {
+export default function Lists({myName}) {
 
 
 
@@ -11,7 +11,7 @@ export default function Links({myName}) {
     };
     return (
       <div style={myStyle}>
-        <h1>Links</h1>
+        <h1>Lists in Header</h1>
         {myName}
         <p>Links coming soon</p>
       </div>

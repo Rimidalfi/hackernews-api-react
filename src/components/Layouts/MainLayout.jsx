@@ -3,7 +3,7 @@ import Footer from "../footer";
 export default function MainLayout({ children, setMainComponent}) {
   return (
     <>
-      <Header />
+      <Header setMainComponent={setMainComponent}/>
       <main>{children}</main>
       <Footer setMainComponent={setMainComponent}/>
     </>

@@ -1,7 +1,14 @@
 export default function Story({id})
 {
     return(
-    <div>{id}</div>
+        <>
+            <span>Story
+                
+            </span>
+            <div>{id}</div>
+            <br></br>
+        </>
+
     );
 
 

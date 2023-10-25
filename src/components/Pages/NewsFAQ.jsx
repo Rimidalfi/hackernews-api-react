@@ -6,7 +6,7 @@ export default function NewsFAQ() {
     return (
       <div style={myStyle}>
         <h1>FAQ</h1>
-        <p>FAQ comming soon</p>
+        <p>FAQ coming soon</p>
       </div>
     );
   }

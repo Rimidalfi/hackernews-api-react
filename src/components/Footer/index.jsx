@@ -4,6 +4,7 @@ import Links from "../Pages/Links";
 import NewsFAQ from "../Pages/NewsFAQ";
 import NewsGuidelines from "../Pages/NewsGuidelines";
 import Security from "../Pages/Security";
+import React from "react";
 
 
 
@@ -25,7 +26,8 @@ export default function Footer({setMainComponent}) {
 
     function switchToLinks()
     {
-      setMainComponent(Links)
+      const component = React.cloneElement(<Links/>,{myName:"Tilo"})
+      setMainComponent({page:component})
     }
 
 

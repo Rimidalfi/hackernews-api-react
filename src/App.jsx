@@ -7,14 +7,16 @@ import React from "react";
 
 function App() {
 
-  //const [mainComponent,setMainComponent] = useState(Homepage);
+  const [mainComponent,setMainComponent] = useState({page:<Homepage/>});
 
   //const mainComp = React.cloneElement(mainComponent);
 
+  const mainComp = mainComponent.page
+
   return (
     <>
-      <MainLayout>
-        <Homepage/>
+      <MainLayout setMainComponent={setMainComponent}>
+        {mainComp}
       </MainLayout>
     </>
   );

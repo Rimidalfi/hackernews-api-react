@@ -47,6 +47,7 @@ export default function Homepage() {
       </span>
     )
   });
+  const Loading = <><span>Loading Data</span><br/><br/></>
 
 
   return (
@@ -54,7 +55,7 @@ export default function Homepage() {
       Homepage {pageNumber}
       <br/>
       <br/>
-        {Stories}
+        {needFetch ? Loading :Stories}
        <a name="more" onClick={() => {showMore()}}>More</a>
     </div>
   );

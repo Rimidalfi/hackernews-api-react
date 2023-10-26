@@ -5,15 +5,18 @@ import { useEffect } from "react";
 
 export default function Homepage() {
 
-  const [frontpageIDs,setFrontpageIDs] = useState([]);
+  const [frontpageItems,setFrontpageItems] = useState();
   const [pageNumber,setPageNumber] = useState(0);
+  const [needFetch,setNeedFetch] = useState(true);
 
-  console.log("FP USESTATE:" , frontpageIDs);
+  console.log("FP USESTATE:" , frontpageItems);
 
   let fp_ids =[];
   useEffect(() => {
-    getFrontpageIDs();
-  },[]);
+    if(needFetch)
+    {
+      getAlgoliaFrontpageIDs();
+    }});
 
 
   async function getFrontpageIDs()
@@ -25,18 +28,42 @@ export default function Homepage() {
     console.log('Data: ${data} ' , data);
 
     //frontpageIDs.concat(data);
-    setFrontpageIDs(data);
+    setFrontpageItems(data);
     fp_ids = data;
     console.log("In Async");
 
     //return data;
   }
 
+  async function getAlgoliaFrontpageIDs()
+  {
+    const response = await fetch(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=30`);
+    console.log('Response' , response);
+
+    const data = await response.json();
+    const hits = data.hits;
+    console.log('Data: ${data} ' , data);
+    console.log('Hits: ${data} ' , hits);
+    setFrontpageItems(hits);
+    setNeedFetch(false);
+    //frontpageIDs.concat(data);
+    //setFrontpageIDs(data);
+    //fp_ids = data;
+    //console.log("In Async");
+
+    //return data;
+
+
+  }
+
+
+
   console.log("Nach Async");
 
   function showMore()
   {
     setPageNumber((prev) => prev+1);
+    setNeedFetch(true);
   }
 
 
@@ -44,17 +71,17 @@ export default function Homepage() {
 
   return (
     <div>
-      Homepage
+      Homepage {pageNumber}
       <br/>
       <br/>
-      {frontpageIDs.slice(pageNumber*30,pageNumber*30+30).map((id,index) => {
+      {frontpageItems?.map((item,index) => {
         return (
-          <span key={'storycontainer'+id}>
+          <span key={'storycontainer'+item.objectID}>
             <span>
               {pageNumber*30 + index +1}
             </span>
 
-          <Story key={id} id={id}/>
+          <Story key={item.objectID} item={item}/>
           </span>
         )
       })}

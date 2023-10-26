@@ -1,11 +1,15 @@
-export default function Story({id})
+export default function Story({item})
 {
     return(
         <>
             <span>Story
                 
             </span>
-            <div>{id}</div>
+            <div>{item.author}</div>
+            <div>{item.story_id}</div>
+            <div>{item.created_at}</div>
+            <div>{item.story_text}</div>
+            <div>{item.title}</div>
             <br></br>
         </>
 

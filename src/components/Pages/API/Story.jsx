@@ -4,13 +4,11 @@ import React from "react";
 
 export default function Story({item,setMainComponent})
 {
-
-    console.log("Func in Story", setMainComponent)
-
     function switchToComments()
     {
        // const component = React.cloneElement(<CommentsForArticle/>,{setMainComponent:setMainComponent}); //Add prop
-        const component = React.cloneElement(<CommentsForArticle/>,{item:item,setMainComponent:setMainComponent}) //Add prop
+        //const component = React.cloneElement(<CommentsForArticle/>,{item:item,setMainComponent:setMainComponent}) //Add prop
+        const component = <CommentsForArticle item={item} setMainComponent={setMainComponent}/>
         setMainComponent({page:component});
     }
 

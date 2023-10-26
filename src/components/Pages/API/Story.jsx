@@ -14,7 +14,7 @@ export default function Story({item})
             <div>{item.created_at}</div>
             <div>{item.story_text}</div>
             <div>{item.title}</div>
-            <div>Children: {item.children.length}</div>
+            <div>Children: {item.children ? item.children.length : 0}</div>
             <div>Comments:{item.num_comments}</div>
             <div>URL:{item.url}</div>
             <div>Updated: {item.updated_at}</div>

@@ -17,7 +17,7 @@ export default function Homepage() {
 
   async function getAlgoliaFrontpageIDs()
   {
-    const response = await fetch(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=30`);
+    const response = await fetch(`http://hn.algolia.com/api/v1/search_by_date?tags=story&page=${pageNumber}&hitsPerPage=30`);
     console.log('Response' , response);
 
     const data = await response.json();

@@ -14,16 +14,19 @@ export default function Homepage() {
     if(needFetch)
     {
       fetchData(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=300`,handleFetchedData);
-    }});
+    }
+  });
+
 
 
   function handleFetchedData(fetchedData)
   {
     const hits = fetchedData.hits;
-    console.log('Data: ${data} ' , fetchedData);
-    console.log('Hits: ${data} ' , hits);
-    setFrontpageItems(hits);
+    console.log('Data:' , fetchedData);
+    console.log('Hits:' , hits);
     setNeedFetch(false);
+    setFrontpageItems(hits);
+
   }
 
 

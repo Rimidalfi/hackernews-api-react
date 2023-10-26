@@ -5,11 +5,20 @@ export default function Story({item})
             <span>Story
                 
             </span>
+            <div>
+
+
+            </div>
             <div>{item.author}</div>
             <div>{item.story_id}</div>
             <div>{item.created_at}</div>
             <div>{item.story_text}</div>
             <div>{item.title}</div>
+            <div>Children: {item.children.length}</div>
+            <div>Comments:{item.num_comments}</div>
+            <div>URL:{item.url}</div>
+            <div>Updated: {item.updated_at}</div>
+            <div>Points: {item.points}</div>
             <br></br>
         </>
 

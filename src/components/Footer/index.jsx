@@ -26,6 +26,7 @@ export default function Footer({setMainComponent}) {
 
     function switchToLists()
     {
+      console.log("Called for Lists")
       const component = React.cloneElement(<Lists/>,{myName:"Tilo"}) //Add prop
       setMainComponent({page:component})
     }
@@ -41,7 +42,7 @@ export default function Footer({setMainComponent}) {
           <span> | </span> 
           <a name="FAQ" onClick={()=> setMainComponent({page:<NewsFAQ/>})}>FAQ</a>
           <span> | </span> 
-          <a name="Lists" onClick={switchToLists}>Lists</a>
+          <a name="Lists" onClick={()=> {switchToLists()}}>Lists</a>
           <span> | </span> 
           <a name="API" href="https://github.com/HackerNews/API" onClick={switchToHP1}>API</a>
           <span> | </span> 

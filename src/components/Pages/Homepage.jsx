@@ -4,7 +4,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import fetchData from "../Utils/fetchData"
 
-export default function Homepage() {
+export default function Homepage({setMainComponent}) {
+
+  console.log("Func in Homepage", setMainComponent)
+  
 
   const [frontpageItems,setFrontpageItems] = useState();
   const [pageNumber,setPageNumber] = useState(0);
@@ -13,7 +16,7 @@ export default function Homepage() {
   useEffect(() => {
     if(needFetch)
     {
-      fetchData(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=300`,handleFetchedData);
+      fetchData(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=3`,handleFetchedData);
     }
   });
 
@@ -45,7 +48,7 @@ export default function Homepage() {
           {pageNumber*30 + index +1}
         </span>
 
-      <Story key={item.objectID} item={item}/>
+      <Story key={item.objectID} setMainComponent={setMainComponent} item={item}/>
       </span>
     )
   });

@@ -1,11 +1,24 @@
-export default function Story({id})
+export default function Story({item})
 {
     return(
         <>
             <span>Story
                 
             </span>
-            <div>{id}</div>
+            <div>
+
+
+            </div>
+            <div>{item.author}</div>
+            <div>{item.story_id}</div>
+            <div>{item.created_at}</div>
+            <div>{item.story_text}</div>
+            <div>{item.title}</div>
+            <div>Children: {item.children ? item.children.length : 0}</div>
+            <div>Comments:{item.num_comments}</div>
+            <div>URL:{item.url}</div>
+            <div>Updated: {item.updated_at}</div>
+            <div>Points: {item.points}</div>
             <br></br>
         </>
 

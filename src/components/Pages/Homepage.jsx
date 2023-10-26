@@ -2,6 +2,7 @@ import Story from "./API/Story";
 import "./Pages.css"
 import { useState } from "react";
 import { useEffect } from "react";
+import fetchData from "../Utils/fetchData"
 
 export default function Homepage() {
 
@@ -12,22 +13,20 @@ export default function Homepage() {
   useEffect(() => {
     if(needFetch)
     {
-      getAlgoliaFrontpageIDs();
+      fetchData(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=300`,handleFetchedData);
     }});
 
-  async function getAlgoliaFrontpageIDs()
-  {
-    const response = await fetch(`http://hn.algolia.com/api/v1/search_by_date?tags=story&page=${pageNumber}&hitsPerPage=30`);
-    console.log('Response' , response);
 
-    const data = await response.json();
-    const hits = data.hits;
-    console.log('Data: ${data} ' , data);
+  function handleFetchedData(fetchedData)
+  {
+    const hits = fetchedData.hits;
+    console.log('Data: ${data} ' , fetchedData);
     console.log('Hits: ${data} ' , hits);
     setFrontpageItems(hits);
     setNeedFetch(false);
-
   }
+
+
 
   function showMore()
   {

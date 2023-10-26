@@ -1,0 +1,10 @@
+  export default async function fetchData(request, passDataFunc)
+  {
+
+    const response = await fetch(request);
+    console.log('Response' , response);
+
+    const data = await response.json();
+    passDataFunc(data);
+
+  }

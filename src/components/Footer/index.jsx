@@ -7,6 +7,8 @@ import Security from "../Pages/Security";
 import React from "react";
 import AskList from "../Pages/AskList";
 import FetchAsk from "../Pages/API/Ask";
+//import "./Footer.css"
+import "../Pages/Pages.css"
 
 
 
@@ -16,6 +18,7 @@ export default function Footer({setMainComponent}) {
   const myStyle = {
     border: "2px solid red",
     backgroundColor: "DodgerBlue",};
+
 
     function switchToAskList()
     {
@@ -27,45 +30,48 @@ export default function Footer({setMainComponent}) {
       setMainComponent(Homepage2)
     }
 
+
     function switchToLists()
     {
       console.log("Called for Lists")
       const component = React.cloneElement(<Lists/>,{myName:"Tilo"}) //Add prop
-      setMainComponent(component)
+      const test = <Lists/>;
+      setMainComponent(test)
     }
 
 
   return (
     <>
 
-      <div>
-        <span>
-        <ul>
-          <a name="Guidelines" onClick={()=> setMainComponent({page:<NewsGuidelines/>})}>Guidelines</a>
+      <div className="footerSpace">
+        <ul className="footerContent">
+          <a name="Guidelines" onClick={()=> setMainComponent(<NewsGuidelines/>)}>Guidelines</a>
           <span> | </span> 
-          <a name="FAQ" onClick={()=> setMainComponent({page:<NewsFAQ/>})}>FAQ</a>
+          <a name="FAQ" onClick={()=> setMainComponent(<NewsFAQ/>)}>FAQ</a>
           <span> | </span> 
           <a name="Lists" onClick={()=> {switchToLists()}}>Lists</a>
           <span> | </span> 
-          <a name="API" onClick={switchToAskList}>API</a>
+          <a name="API" href="https://github.com/HackerNews/API">API</a>
           <span> | </span> 
-          <a name="Security" onClick={()=> setMainComponent({page:<Security/>})}>Security</a>
+          <a name="Security" onClick={()=> setMainComponent(<Security/>)}>Security</a>
           <span> | </span> 
-          <a name="Legal" href="https://www.ycombinator.com/legal/" onClick={switchToLists}>Legal</a>
+          <a name="Legal" href="https://www.ycombinator.com/legal/" >Legal</a>
           <span> | </span> 
-          <a name="ApplytoYC" href="https://www.ycombinator.com/apply/" onClick={switchToLists}>Apply to YC</a>
+          <a name="ApplytoYC" href="https://www.ycombinator.com/apply/">Apply to YC</a>
           <span> | </span> 
-          <a name="Contact" href="mailto:hn@ycombinator.com" onClick={switchToLists}>Contact</a>
+          <a name="Contact" href="mailto:hn@ycombinator.com" >Contact</a>
 
         </ul>
-        </span>
-      <br>
-      </br>
-      <form method="get" action="//hn.algolia.com/">
-        Search: 
-      <input type="text" name="q" size="17"/>
+        <div className="footerSearch">
+          <form  method="get" action="//hn.algolia.com/">
+            Search: 
+          <input className = "footerInput" type="text" name="q" size="17"/>
+          </form>
+        </div>
+        <br/>
 
-      </form>
+
+
       </div>
 
 

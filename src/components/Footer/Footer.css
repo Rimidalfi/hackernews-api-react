@@ -4,7 +4,7 @@ ul    { font-family:Verdana, Geneva, sans-serif; font-size:10pt; color:#828282; 
 input    { font-family:monospace; font-size:10pt; }
 input[type=\"submit\"] { font-family:Verdana, Geneva, sans-serif; }
 
-a:link    { color:#000000; text-decoration:none; }
+a:link    { color:#3cff00; text-decoration:none; }
 a:visited { color:#828282; text-decoration:none; }
 
 .comment a:link, .comment a:visited { text-decoration: underline; }

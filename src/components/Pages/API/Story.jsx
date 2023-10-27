@@ -4,25 +4,20 @@ import React from "react";
 import { useContext } from "react";
 import setMainCompContext from "../../../App";
 
-export default function Story({ item, setMainComponent }) {
-  console.log("Title", item.title);
-  //const setMainComponent2 = useContext(setMainCompContext)
 
-  //const created_at_MS = Date.parse(item.created_at);
+export default function Story({listNumber,item,setMainComponent})
+{
 
-  //console.log("URL:", item.url);
-  //const url = new URL(item.url);
-  //const baseUrl = '{url.protocol}//${{url.hostname}'
-  //const baseUrl="fake";
+    const baseURL = extractBaseURL(item.url)
 
-  const baseURL = extractBaseURL(item.url);
-
-  function extractBaseURL(url) {
-    if (url) {
-      const url = new URL(item.url);
-      const baseURL = "{url.protocol}//${{url.hostname}";
-      return baseURL;
-    }
+    function extractBaseURL(url)
+    {
+        if(url)
+        {
+            const url = new URL(item.url);
+            const baseURL = `${url.protocol}//${url.hostname}`
+            return baseURL;
+        }
 
     return null;
   }
@@ -42,33 +37,46 @@ export default function Story({ item, setMainComponent }) {
   }
   function switchToAuthor() {
     const component = (
-      <UserPage item={item} setMainComponent={setMainComponent} />
+      <UserPage username={item.author} setMainComponent={setMainComponent} />
     );
     setMainComponent(component);
   }
 
-  return (
-    <>
-      <a href={item.url}>Titel {item.title} </a>
-      {baseURL ? <a href={baseURL}>({item.url}) </a> : ""}
 
-      <br />
-      <span>{item.points} Points by </span>
-      <a href="#" onClick={() => switchToAuthor()}>
-        {item.author}{" "}
-      </a>
-      <a href="#" onClick={() => switchToComments()}>
-        {calculateTimePassed(item.created_at)} | hide |{" "}
-      </a>
+    return(
+        <>
+        <div className="story_element">
+            <div className="num_arrow">
+              <span>{listNumber}.</span>
+              <a href="#"><span className="votearrow">&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+            </div>
+            <span className = "nix_space"></span>
+            <div className= "title">
+              <a  href={item.url}>{item.title} </a> 
+              {
+                  baseURL? <a  href={baseURL}> ({baseURL}) </a> : ""
+              }
+            </div>
+            <div className= "lower">
+              <span >{item.points} Points by </span>
+              <a href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
+              <a  href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} hours ago</a>
+              <a > | hide | </a>
+              <a  name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
+              <br/><br/>
+            </div>
+ 
 
-      <a name="comments" href="#" onClick={() => switchToComments()}>
-        {item.num_comments ? item.num_comments : "discuss"} comments
-      </a>
-      <br />
-      <br />
-      {/*<div>Children: {item.children ? item.children.length : 0}</div>*/}
-    </>
-  );
+
+
+
+        </div>
+ 
+            {/*<div>Children: {item.children ? item.children.length : 0}</div>*/}
+        </>
+
+    );
+
 
   async function fetchStuff() {
     const myPromise = await fetch(

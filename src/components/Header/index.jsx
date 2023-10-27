@@ -9,10 +9,10 @@ export default function Header({setMainComponent}) {
   };
 
 
-  function switchToHomepage()
+  function switchToHomepage(string)
   {
-    const component = React.cloneElement(<Homepage/>,{myName:"blah"}) //Add prop
-    setMainComponent(component)
+    const component = string
+    setMainComponent(component);
   }
   return (
     <>
@@ -22,7 +22,7 @@ export default function Header({setMainComponent}) {
       <div>
         <span>
         <ul>
-          <a name="Lists" onClick={switchToHomepage}>Homepage</a>
+          <a name="Lists" onClick={() => switchToHomepage(<Homepage />)}>Homepage</a>
         </ul>
         </span>
 

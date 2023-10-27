@@ -1,13 +1,13 @@
 import CommentsForArticle from "./CommentsForArticle";
 import React from "react";
 import { useContext } from "react";
-import setMainCompContext from "../../../App";
+//import setMainCompContext from "../../../App";
 //import setMainComponent from "../../Utils/setMainComponent";
 
 export default function Story({item,setMainComponent})
 {
 
-    const setMainComponent2 = useContext(setMainCompContext)
+    //const setMainComponent2 = useContext(setMainCompContext)
 
     function switchToComments()
     {

@@ -7,22 +7,19 @@ import { useState, createContext } from "react";
 import React from "react";
 
 function App() {
-
-  const [mainComponent,setMainComponent] = useState(<Homepage/>);
+  const [mainComponent, setMainComponent] = useState(<Homepage />);
 
   const setMainCompContext = createContext(setMainComponent);
 
-  const mainComp = React.cloneElement(mainComponent,{setMainComponent:setMainComponent});
+  const mainComp = React.cloneElement(mainComponent, {
+    setMainComponent: setMainComponent,
+  });
 
   return (
     <>
-
-      <MainLayout setMainComponent={setMainComponent}>
-        {mainComp}
-      </MainLayout>
+      <MainLayout setMainComponent={setMainComponent}>{mainComp}</MainLayout>
     </>
   );
 }
 
 export default App;
-

@@ -49,24 +49,29 @@ export default function Story({listNumber,item,setMainComponent})
         <div className="story_element">
             <span className="num_arrow">{listNumber} </span>
 
-
-            <a className= "title" href={item.url}>{item.title} </a> 
+            <div className= "title">
+            <a  href={item.url}>{item.title} </a> 
             {
-                baseURL? <a className= "url" href={baseURL}> ({baseURL}) </a> : ""
+                baseURL? <a  href={baseURL}> ({baseURL}) </a> : ""
             }
-
-
-
-
+            </div>
+            <span className = "nix_space"></span>
+            <div className= "lower">
             <br/>
-            <span className="nix_space"></span>
-            <span className="lower">{item.points} Points by </span>
-            <a className="lower" href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
-            <a className="lower" href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} hours ago</a>
-            <a className="lower"> | hide | </a>
+            <span ></span>
+            <span >{item.points} Points by </span>
+            <a href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
+            <a  href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} hours ago</a>
+            <a > | hide | </a>
 
-            <a className="lower" name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
+            <a  name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
             <br/><br/>
+            </div>
+ 
+
+
+
+
         </div>
  
             {/*<div>Children: {item.children ? item.children.length : 0}</div>*/}

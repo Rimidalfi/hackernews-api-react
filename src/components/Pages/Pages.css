@@ -68,30 +68,27 @@ a:visited {
   .story_element{
     display: grid;
     grid-template-areas:
-    "num_arrow title title title title url url "
-    "nix_space lower lower lower lower lower lower";
+    "num_arrow title title title "
+    "nix_space lower lower lower";
+    align-items: start;
 
-    color:#ff00ee;
   }
 
   .story_element > .title {
     grid-area: title;
 
   }
-
-  .story_element > .url {
-    grid-area: url;
-
-  }
-
   .story_element > .num_arrow {
     grid-area: num_arrow;
+    width:1px;
 
   }
 
   .story_element > .nix_space {
     grid-area: nix_space;
+    width:1px;
   }
+
 
   .story_element > .lower {
     grid-area: lower;

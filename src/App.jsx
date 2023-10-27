@@ -10,9 +10,7 @@ function App() {
 
   const [mainComponent,setMainComponent] = useState({page:<Homepage/>});
 
-  //const mainComp = React.cloneElement(mainComponent);
-
-  const mainComp = mainComponent.page
+  const mainComp = React.cloneElement(mainComponent.page,{setMainComponent:setMainComponent});
 
   return (
     <>
@@ -24,3 +22,4 @@ function App() {
 }
 
 export default App;
+

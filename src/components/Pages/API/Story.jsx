@@ -1,21 +1,31 @@
-export default function Story({item})
+import CommentsForArticle from "./CommentsForArticle";
+import React from "react";
+//import setMainComponent from "../../Utils/setMainComponent";
+
+export default function Story({item,setMainComponent})
 {
+    function switchToComments()
+    {
+       // const component = React.cloneElement(<CommentsForArticle/>,{setMainComponent:setMainComponent}); //Add prop
+        //const component = React.cloneElement(<CommentsForArticle/>,{item:item,setMainComponent:setMainComponent}) //Add prop
+        const component = <CommentsForArticle item={item} setMainComponent={setMainComponent}/>
+        setMainComponent({page:component});
+    }
+
+
     return(
         <>
-            <span>Story
-                
+            <span>Story     
             </span>
             <div>
-
-
             </div>
-            <div>{item.author}</div>
-            <div>{item.story_id}</div>
-            <div>{item.created_at}</div>
-            <div>{item.story_text}</div>
-            <div>{item.title}</div>
+            <div>Author {item.author}</div>
+            <div>ID {item.story_id}</div>
+            <div>Created {item.created_at}</div>
+            <div>StoryText {item.story_text}</div>
+            <div>Titel {item.title}</div>
             <div>Children: {item.children ? item.children.length : 0}</div>
-            <div>Comments:{item.num_comments}</div>
+            <div onClick={()=> switchToComments()}>Comments:{item.num_comments}</div>
             <div>URL:{item.url}</div>
             <div>Updated: {item.updated_at}</div>
             <div>Points: {item.points}</div>

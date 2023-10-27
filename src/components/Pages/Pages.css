@@ -70,27 +70,30 @@ a:visited {
     grid-template-areas:
     "num_arrow title title title "
     "nix_space lower lower lower";
-    align-items: start;
+    justify-content: left;
 
+  }
+
+  .story_element > .num_arrow {
+    grid-area: num_arrow;
+    width:40px;
+    max-width: 40px;
+
+  }
+
+  .story_element > .nix_space {
+    grid-area: nix_space;
+    width:40px;
+    max-width: 40px;
   }
 
   .story_element > .title {
     grid-area: title;
 
   }
-  .story_element > .num_arrow {
-    grid-area: num_arrow;
-    width:1px;
-
-  }
-
-  .story_element > .nix_space {
-    grid-area: nix_space;
-    width:1px;
-  }
-
 
   .story_element > .lower {
     grid-area: lower;
+
   }
 

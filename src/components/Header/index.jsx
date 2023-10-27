@@ -12,7 +12,7 @@ export default function Header({setMainComponent}) {
   function switchToHomepage()
   {
     const component = React.cloneElement(<Homepage/>,{myName:"blah"}) //Add prop
-    setMainComponent({page:component})
+    setMainComponent(component)
   }
   return (
     <>

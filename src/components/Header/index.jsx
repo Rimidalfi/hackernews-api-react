@@ -1,21 +1,28 @@
 import "./Header.css";
 import Homepage from "../Pages/Homepage";
+import Lists from "../Pages/Lists";
+import React from "react";
 
 export default function Header({ setMainComponent }) {
+
   function switchTo(string) {
     const component = string;
     setMainComponent(component);
   }
+
+
+
+
   return (
     <>
       <ul className="menuList">
         <div className="Logo">
-          <a href="" onClick={() => switchTo(<Homepage />)}>
+          <a href="#" onClick={() => switchTo(<Homepage/>)}>
             <img className="LogoIcon" src="../src/assets/y18.svg" />
           </a>
         </div>
-        <li className="fontLogo" onClick={() => switchTo(<Homepage />)}>
-          <a href="" className="fontLogo">
+        <li className="fontLogo" onClick={() => switchTo(<Homepage/>)}>
+          <a href="#" className="fontLogo">
             Hacker News
           </a>
         </li>
@@ -33,7 +40,7 @@ export default function Header({ setMainComponent }) {
           </li>
           |
           <li className="menuPoint">
-            <a href="">ask</a>
+            <a href="# " onClick={() => switchTo(<AskList/>)}>ask</a>
           </li>
           |
           <li className="menuPoint">

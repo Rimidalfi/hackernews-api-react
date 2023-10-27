@@ -1,6 +1,6 @@
 :root {
   --orange: #ff6600;
-  --gray: #828282;
+  --gray: #ff00ee;
   --eggshell: #f6f6ef;
   --mainFont: Verdana, Geneva, sans-serif;
 }
@@ -59,3 +59,41 @@ a:visited {
     line-height: 14pt;
   }
 }
+
+
+
+
+/*  Story Element*/
+
+  .story_element{
+    display: grid;
+    grid-template-areas:
+    "num_arrow title title title title url url "
+    "nix_space lower lower lower lower lower lower";
+
+    color:#ff00ee;
+  }
+
+  .story_element > .title {
+    grid-area: title;
+
+  }
+
+  .story_element > .url {
+    grid-area: url;
+
+  }
+
+  .story_element > .num_arrow {
+    grid-area: num_arrow;
+
+  }
+
+  .story_element > .nix_space {
+    grid-area: nix_space;
+  }
+
+  .story_element > .lower {
+    grid-area: lower;
+  }
+

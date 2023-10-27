@@ -5,21 +5,8 @@ import { useContext } from "react";
 import setMainCompContext from "../../../App";
 
 
-export default function Story({item,setMainComponent})
+export default function Story({listNumber,item,setMainComponent})
 {
-
-    console.log("Title",item.title)
-    //const setMainComponent2 = useContext(setMainCompContext)
-
-
-    //const created_at_MS = Date.parse(item.created_at);
-
-     
-
-    //console.log("URL:", item.url);
-    //const url = new URL(item.url);
-    //const baseUrl = '{url.protocol}//${{url.hostname}'
-    //const baseUrl="fake";
 
     const baseURL = extractBaseURL(item.url)
 
@@ -28,7 +15,7 @@ export default function Story({item,setMainComponent})
         if(url)
         {
             const url = new URL(item.url);
-            const baseURL = '{url.protocol}//${{url.hostname}'
+            const baseURL = `${url.protocol}//${url.hostname}`
             return baseURL;
         }
 
@@ -59,19 +46,29 @@ export default function Story({item,setMainComponent})
 
     return(
         <>
+        <div className="story_element">
+            <span className="num_arrow">{listNumber} </span>
 
-            <a href={item.url}>Titel {item.title} </a> 
+
+            <a className= "title" href={item.url}>{item.title} </a> 
             {
-                baseURL? <a href={baseURL}>({item.url}) </a> : ""
+                baseURL? <a className= "url" href={baseURL}> ({baseURL}) </a> : ""
             }
 
-            <br/>
-            <span>{item.points} Points by </span>
-            <a href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
-            <a href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} | hide | </a>
 
-            <a name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
+
+
+            <br/>
+            <span className="nix_space"></span>
+            <span className="lower">{item.points} Points by </span>
+            <a className="lower" href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
+            <a className="lower" href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} hours ago</a>
+            <a className="lower"> | hide | </a>
+
+            <a className="lower" name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
             <br/><br/>
+        </div>
+ 
             {/*<div>Children: {item.children ? item.children.length : 0}</div>*/}
         </>
 

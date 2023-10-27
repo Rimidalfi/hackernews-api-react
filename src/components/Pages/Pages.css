@@ -23,6 +23,7 @@ ul {
 .horizontalLine {
   border-top: 2px solid var(--orange);
   margin: 0px;
+  background-color:var(--eggshell);
 }
 
 input {
@@ -94,6 +95,36 @@ a:visited {
 
   .story_element > .lower {
     grid-area: lower;
+    font-size:x-small
 
   }
+  .votearrow {
+    width: 10px;
+    height: 10px;
+    border: 0px;
+    margin: 3px 2px 6px;
+    background-size: 10px;
+    background: url(https://news.ycombinator.com/triangle.svg) ,linear-gradient(transparent, transparent) no-repeat;
+    background-repeat: no-repeat;
+    background-size: 13px;
+  }
 
+  .footerSpace{
+    display:flex;
+    flex-direction: column;
+    background-color: var(--eggshell);
+    margin: 0;
+    justify-content: center;
+    align-content: center;
+  }
+  #root{
+    background-color: var(--eggshell);
+  }
+  .footerContent{
+    justify-self: center;
+    align-self: center;
+  }
+  .footerSearch{
+    justify-self: center;
+    align-self: center;
+  }

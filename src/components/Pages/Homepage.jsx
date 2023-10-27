@@ -36,9 +36,9 @@ export default function Homepage({setMainComponent}) {
   const Stories = 
   frontpageItems?.map((item,index) => {
     return (
-      <span key={'storycontainer'+item.objectID}>
+      <div key={'storycontainer'+item.objectID}>
         <Story key={item.objectID} setMainComponent={setMainComponent} item={item} listNumber={pageNumber*30 + index +1}/>
-      </span>
+      </div>
     )
   });
 
@@ -46,7 +46,6 @@ export default function Homepage({setMainComponent}) {
 
   return (
     <div>
-      <br/>
       <br/>
         {needFetch ? Loading :Stories}
        <a name="more" onClick={() => {showMore()}}>More</a>

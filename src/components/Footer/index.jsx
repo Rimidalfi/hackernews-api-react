@@ -6,6 +6,7 @@ import NewsGuidelines from "../Pages/NewsGuidelines";
 import Security from "../Pages/Security";
 import React from "react";
 //import "./Footer.css"
+import "../Pages/Pages.css"
 
 
 
@@ -29,9 +30,8 @@ export default function Footer({setMainComponent}) {
   return (
     <>
 
-      <div>
-        <span>
-        <ul>
+      <div className="footerSpace">
+        <ul className="footerContent">
           <a name="Guidelines" onClick={()=> setMainComponent(<NewsGuidelines/>)}>Guidelines</a>
           <span> | </span> 
           <a name="FAQ" onClick={()=> setMainComponent(<NewsFAQ/>)}>FAQ</a>
@@ -49,14 +49,16 @@ export default function Footer({setMainComponent}) {
           <a name="Contact" href="mailto:hn@ycombinator.com" >Contact</a>
 
         </ul>
-        </span>
-      <br>
-      </br>
-      <form method="get" action="//hn.algolia.com/">
-        Search: 
-      <input type="text" name="q" size="17"/>
+        <div className="footerSearch">
+          <form  method="get" action="//hn.algolia.com/">
+            Search: 
+          <input className = "footerInput" type="text" name="q" size="17"/>
+          </form>
+        </div>
+        <br/>
 
-      </form>
+
+
       </div>
 
 

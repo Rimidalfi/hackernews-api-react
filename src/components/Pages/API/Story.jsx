@@ -37,7 +37,7 @@ export default function Story({listNumber,item,setMainComponent})
   }
   function switchToAuthor() {
     const component = (
-      <UserPage item={item} setMainComponent={setMainComponent} />
+      <UserPage username={item.author} setMainComponent={setMainComponent} />
     );
     setMainComponent(component);
   }
@@ -46,25 +46,24 @@ export default function Story({listNumber,item,setMainComponent})
     return(
         <>
         <div className="story_element">
-            <span className="num_arrow">{listNumber} </span>
-
-            <div className= "title">
-            <a  href={item.url}>{item.title} </a> 
-            {
-                baseURL? <a  href={baseURL}> ({baseURL}) </a> : ""
-            }
+            <div className="num_arrow">
+              <span>{listNumber}.</span>
+              <a href="#"><span className="votearrow">&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
             </div>
             <span className = "nix_space"></span>
+            <div className= "title">
+              <a  href={item.url}>{item.title} </a> 
+              {
+                  baseURL? <a  href={baseURL}> ({baseURL}) </a> : ""
+              }
+            </div>
             <div className= "lower">
-            <br/>
-            <span ></span>
-            <span >{item.points} Points by </span>
-            <a href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
-            <a  href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} hours ago</a>
-            <a > | hide | </a>
-
-            <a  name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
-            <br/><br/>
+              <span >{item.points} Points by </span>
+              <a href="#" onClick={()=> switchToAuthor()}>{item.author} </a>
+              <a  href="#" onClick={()=> switchToComments()}>{calculateTimePassed(item.created_at)} hours ago</a>
+              <a > | hide | </a>
+              <a  name="comments" href="#" onClick={()=> switchToComments()}>{item.num_comments ? item.num_comments : 'discuss'} comments</a>
+              <br/><br/>
             </div>
  
 

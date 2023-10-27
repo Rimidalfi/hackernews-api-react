@@ -1,6 +1,6 @@
 import "./Header.css";
 import Homepage from "../Pages/Homepage";
-import Lists from "../Pages/Lists";
+import Comments from "../Pages/API/Comments";
 import React from "react";
 
 export default function Header({ setMainComponent }) {
@@ -28,15 +28,15 @@ export default function Header({ setMainComponent }) {
         </li>
         <div className="menuContainer">
           <li className="menuPoint">
-            <a href="">new</a>
+            <a href="#">new</a>
           </li>
           |
           <li className="menuPoint">
-            <a href="">past</a>
+            <a href="#">past</a>
           </li>
           |
           <li className="menuPoint">
-            <a href="">comments</a>
+            <a href="#" onClick={() => switchTo(<Comments/>)}>comments</a>
           </li>
           |
           <li className="menuPoint">
@@ -44,15 +44,15 @@ export default function Header({ setMainComponent }) {
           </li>
           |
           <li className="menuPoint">
-            <a href="">show</a>
+            <a href="#">show</a>
           </li>
           |
           <li className="menuPoint">
-            <a href="">jobs</a>
+            <a href="#">jobs</a>
           </li>
           |
           <li className="menuPoint">
-            <a href="">submit</a>
+            <a href="#">submit</a>
           </li>
         </div>
         <li className="menuLogin">login</li>

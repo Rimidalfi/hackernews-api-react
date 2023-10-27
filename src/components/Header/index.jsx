@@ -1,5 +1,6 @@
 import "./Header.css";
 import Homepage from "../Pages/Homepage";
+import AskList from "../Pages/AskList";
 import Comments from "../Pages/API/Comments";
 import React from "react";
 

@@ -3,6 +3,7 @@ import "./Pages.css"
 import { useState } from "react";
 import { useEffect } from "react";
 import fetchData from "../Utils/fetchData"
+import FetchAsk from "./API/Ask";
 
 export default function Homepage({setMainComponent}) {
 
@@ -36,6 +37,7 @@ export default function Homepage({setMainComponent}) {
   const Stories = 
   frontpageItems?.map((item,index) => {
     return (
+      
       <div key={'storycontainer'+item.objectID}>
         <Story key={item.objectID} setMainComponent={setMainComponent} item={item} listNumber={pageNumber*30 + index +1}/>
       </div>

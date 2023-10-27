@@ -34,6 +34,14 @@ input[type=\"submit\"] {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+.ask-title {
+  color: black; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
 a:link {
   color: #000000;
   text-decoration: none;

@@ -5,6 +5,8 @@ import NewsFAQ from "../Pages/NewsFAQ";
 import NewsGuidelines from "../Pages/NewsGuidelines";
 import Security from "../Pages/Security";
 import React from "react";
+import AskList from "../Pages/AskList";
+import FetchAsk from "../Pages/API/Ask";
 //import "./Footer.css"
 import "../Pages/Pages.css"
 
@@ -16,6 +18,17 @@ export default function Footer({setMainComponent}) {
   const myStyle = {
     border: "2px solid red",
     backgroundColor: "DodgerBlue",};
+
+
+    function switchToAskList()
+    {
+      setMainComponent(<FetchAsk />)
+    }
+
+    function switchToHP2()
+    {
+      setMainComponent(Homepage2)
+    }
 
 
     function switchToLists()

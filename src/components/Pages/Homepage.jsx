@@ -37,11 +37,7 @@ export default function Homepage({setMainComponent}) {
   frontpageItems?.map((item,index) => {
     return (
       <span key={'storycontainer'+item.objectID}>
-        <span>
-          {pageNumber*30 + index +1}
-        </span>
-
-      <Story key={item.objectID} setMainComponent={setMainComponent} item={item}/>
+        <Story key={item.objectID} setMainComponent={setMainComponent} item={item} listNumber={pageNumber*30 + index +1}/>
       </span>
     )
   });
@@ -50,7 +46,6 @@ export default function Homepage({setMainComponent}) {
 
   return (
     <div>
-      Homepage {pageNumber}
       <br/>
       <br/>
         {needFetch ? Loading :Stories}

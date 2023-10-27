@@ -1,15 +1,12 @@
 import Header from "../Header";
 import Footer from "../Footer";
-export default function MainLayout({ children, setMainComponent}) {
-
-
-  //console.log("Func in Main Layout", setMainComponent)
-  //console.log("Children in Main Layout", children)
+export default function MainLayout({ children, setMainComponent }) {
   return (
     <>
-      <Header setMainComponent={setMainComponent}/>
-      <main>{children}</main>
-      <Footer setMainComponent={setMainComponent}/>
+      <Header setMainComponent={setMainComponent} />
+      <main className="mainContainer">{children}</main>
+      <hr className="horizontalLine" />
+      <Footer setMainComponent={setMainComponent} />
     </>
   );
 }

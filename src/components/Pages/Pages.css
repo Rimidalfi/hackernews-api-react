@@ -1,19 +1,61 @@
-body  { font-family:Verdana, Geneva, sans-serif; font-size:10pt; color:#828282; }
-ul    { font-family:Verdana, Geneva, sans-serif; font-size:10pt; color:#828282; }
+:root {
+  --orange: #ff6600;
+  --gray: #828282;
+  --eggshell: #f6f6ef;
+  --mainFont: Verdana, Geneva, sans-serif;
+}
+.mainContainer {
+  background-color: var(--eggshell);
+}
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #828282;
 
-input    { font-family:monospace; font-size:10pt; }
-input[type=\"submit\"] { font-family:Verdana, Geneva, sans-serif; }
+  margin-left: 32px;
+  margin-right: 32px;
+}
+ul {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #828282;
+}
+.horizontalLine {
+  border-top: 2px solid var(--orange);
+  margin: 0px;
+}
 
-a:link    { color:#000000; text-decoration:none; }
-a:visited { color:#828282; text-decoration:none; }
+input {
+  font-family: monospace;
+  font-size: 10pt;
+}
+input[type=\"submit\"] {
+  font-family: Verdana, Geneva, sans-serif;
+}
 
-.comment a:link, .comment a:visited { text-decoration: underline; }
+a:link {
+  color: #000000;
+  text-decoration: none;
+}
+a:visited {
+  color: #828282;
+  text-decoration: none;
+}
 
+.comment a:link,
+.comment a:visited {
+  text-decoration: underline;
+}
 
 /* mobile device */
-@media only screen
-and (min-width : 300px)
-and (max-width : 750px) {
-  body { padding: 0; margin: 0; width: 100%; }
-  .title { font-size: 11pt; line-height: 14pt;  }
+@media only screen and (min-width: 300px) and (max-width: 750px) {
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .title {
+    font-size: 11pt;
+    line-height: 14pt;
+  }
 }

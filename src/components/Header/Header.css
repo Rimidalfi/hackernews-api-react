@@ -1,0 +1,52 @@
+:root {
+  --orange: #ff6600;
+  --gray: #828282;
+  --eggshell: #f6f6ef;
+  --mainFont: Verdana, Geneva, sans-serif;
+}
+.menuList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  flex-wrap: wrap;
+  background-color: var(--orange);
+  font-family: var(--mainFont);
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+.menuPoint > a {
+  color: rgb(0, 0, 0) !important;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.menuLogin {
+  text-align: right;
+  flex-grow: 10;
+  color: rgb(0, 0, 0) !important;
+  margin-right: 12px;
+  /* border: 2px black solid; */
+}
+.menuContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 2;
+  flex-wrap: wrap;
+  color: rgb(0, 0, 0) !important;
+  margin-left: 12px;
+  /* border: 2px black solid; */
+}
+.fontLogo > a {
+  font-weight: 600;
+  margin-left: 12px;
+  color: rgb(0, 0, 0) !important;
+  flex-grow: 0.5;
+  /* border: 2px black solid; */
+}
+.LogoIcon {
+  border: 1px rgb(255, 255, 255) solid;
+  height: 23px;
+  width: auto;
+}

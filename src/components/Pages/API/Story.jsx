@@ -1,4 +1,4 @@
-import CommentsForArticle from "./CommentsForArticle";
+import CommentsForArticle from "./Comments";
 import UserPage from "./UserPage";
 import React from "react";
 import { useContext } from "react";
@@ -19,29 +19,28 @@ export default function Story({listNumber,item,setMainComponent})
             return baseURL;
         }
 
-        return null;
+    return null;
+  }
 
-    }
+  function calculateTimePassed(timeSource) {
+    const passedMSDate = new Date();
+    passedMSDate.setTime(Date.now() - Date.parse(timeSource));
 
+    return passedMSDate.getHours();
+  }
 
-    function calculateTimePassed(timeSource)
-    {
-        const passedMSDate = new Date()
-        passedMSDate.setTime(Date.now() - Date.parse(timeSource))
-    
-        return passedMSDate.getHours();
-    }
-
-    function switchToComments()
-    {
-        const component = <CommentsForArticle item={item} setMainComponent={setMainComponent}/>
-        setMainComponent(component);
-    }
-    function switchToAuthor()
-    {
-        const component = <UserPage item={item} setMainComponent={setMainComponent}/>
-        setMainComponent(component);
-    }
+  function switchToComments() {
+    const component = (
+      <CommentsForArticle item={item} setMainComponent={setMainComponent} />
+    );
+    setMainComponent(component);
+  }
+  function switchToAuthor() {
+    const component = (
+      <UserPage item={item} setMainComponent={setMainComponent} />
+    );
+    setMainComponent(component);
+  }
 
 
     return(
@@ -80,12 +79,14 @@ export default function Story({listNumber,item,setMainComponent})
     );
 
 
-    async function fetchStuff() {
-        const myPromise = await fetch("https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty");
-        console.log(myPromise);
-        const myData = await myPromise.json();
-        console.log("myData" + JSON.stringify(myData));
-        console.log("myData" + myData.title);
-      //renderUsers(myData);
-    }
+  async function fetchStuff() {
+    const myPromise = await fetch(
+      "https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty"
+    );
+    console.log(myPromise);
+    const myData = await myPromise.json();
+    console.log("myData" + JSON.stringify(myData));
+    console.log("myData" + myData.title);
+    //renderUsers(myData);
+  }
 }

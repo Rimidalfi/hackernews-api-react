@@ -1,5 +1,6 @@
 import "./Header.css";
 import Homepage from "../Pages/Homepage";
+import AskList from "../Pages/AskList";
 
 export default function Header({ setMainComponent }) {
   function switchTo(string) {
@@ -32,8 +33,8 @@ export default function Header({ setMainComponent }) {
             <a href="">comments</a>
           </li>
           |
-          <li className="menuPoint">
-            <a href="">ask</a>
+          <li className="menuPoint" onClick={() => switchTo(<AskList />)}>
+            <a href="#">ask</a>
           </li>
           |
           <li className="menuPoint">

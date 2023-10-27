@@ -5,6 +5,8 @@ import NewsFAQ from "../Pages/NewsFAQ";
 import NewsGuidelines from "../Pages/NewsGuidelines";
 import Security from "../Pages/Security";
 import React from "react";
+import AskList from "../Pages/AskList";
+import FetchAsk from "../Pages/API/Ask";
 
 
 
@@ -15,9 +17,9 @@ export default function Footer({setMainComponent}) {
     border: "2px solid red",
     backgroundColor: "DodgerBlue",};
 
-    function switchToHP1()
+    function switchToAskList()
     {
-      setMainComponent(Homepage)
+      setMainComponent(<FetchAsk />)
     }
 
     function switchToHP2()
@@ -45,7 +47,7 @@ export default function Footer({setMainComponent}) {
           <span> | </span> 
           <a name="Lists" onClick={()=> {switchToLists()}}>Lists</a>
           <span> | </span> 
-          <a name="API" href="https://github.com/HackerNews/API" onClick={switchToHP1}>API</a>
+          <a name="API" onClick={switchToAskList}>API</a>
           <span> | </span> 
           <a name="Security" onClick={()=> setMainComponent({page:<Security/>})}>Security</a>
           <span> | </span> 

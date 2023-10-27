@@ -1,15 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import AuthorItem from "./Author.jsx";
 
-export default function FetchAsk(){
+export default function FetchAsk({item,setMainComponent}){
 
     // adresse festlegen - in GRO?BUCHTSTABEN soll nicht veränder werden
-    const URL = "https://hn.algolia.com/api/v1/search";
+    const URL = "https://hn.algolia.com/api/v1/search?tags=ask_hn&hitsPerPage=30";
 
     // speicherort der gezogenen Daten
-    const [questions, setQuestions] = useState([]); 
-    const [list, setList] = useState([]); 
+    const [questions, setQuestions] = useState([]);  
     const [missingData, setMissingData] = useState(false); //hebel für fehlermeldungen
     const [isLoading, setIsLoading] = useState(false); 
 
@@ -47,12 +45,12 @@ export default function FetchAsk(){
 
     const askList = questions.map((question) => {
         return <div key={question.story_id}>
-            <h3>{question.title}</h3> 
+            <h3 className="ask-title">{question.title}</h3>
+            {question.points} Points by {question.author} {question.created_at} | {question.num_comments} Comments
         </div>
     })
 
     return <>
-    <h1>liste</h1>
     {askList}
     </>
 }

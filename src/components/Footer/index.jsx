@@ -9,6 +9,7 @@ import React from "react";
 
 
 
+
 export default function Footer({setMainComponent}) {
   const myStyle = {
     border: "2px solid red",
@@ -28,7 +29,7 @@ export default function Footer({setMainComponent}) {
     {
       console.log("Called for Lists")
       const component = React.cloneElement(<Lists/>,{myName:"Tilo"}) //Add prop
-      setMainComponent({page:component})
+      setMainComponent(component)
     }
 
 

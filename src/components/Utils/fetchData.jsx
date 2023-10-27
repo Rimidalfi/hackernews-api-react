@@ -14,8 +14,9 @@
     }
     catch(err)
     {
+      
       console.log('Request String' , request);
-      console.log('Response' , response);
+      //console.log('Response' , response);
       console.error("Whatnow FetchError:", err.message)
 
     }

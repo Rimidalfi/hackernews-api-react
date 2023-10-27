@@ -10,12 +10,12 @@ export default function Homepage({setMainComponent}) {
   const [pageNumber,setPageNumber] = useState(0);
   const [needFetch,setNeedFetch] = useState(true);
 
-  //useEffect(() => {
+  useEffect(() => {
     if(needFetch)
     {
       fetchData(`http://hn.algolia.com/api/v1/search?tags=story&page=${pageNumber}&hitsPerPage=30`,handleFetchedData);
     }
-  //});
+  });
 
   function handleFetchedData(fetchedData)
   {
@@ -29,7 +29,7 @@ export default function Homepage({setMainComponent}) {
   function showMore()
   {
     setPageNumber((prev) => prev+1);
-    setFrontpageItems()
+    //setFrontpageItems()
     setNeedFetch(true);
   }
 

@@ -23,7 +23,7 @@ ul {
 .horizontalLine {
   border-top: 2px solid var(--orange);
   margin: 0px;
-  background-color:var(--eggshell);
+  background-color: var(--eggshell);
 }
 
 input {
@@ -35,7 +35,7 @@ input[type=\"submit\"] {
 }
 
 .ask-title {
-  color: black; 
+  color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 400;
   font-size: 15px;
@@ -55,7 +55,30 @@ a:visited {
 .comment a:visited {
   text-decoration: underline;
 }
-
+.commentBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+}
+.tableRow1 {
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+  /* justify-content: space-between; */
+}
+.tableRow2 {
+  margin-left: 6px;
+  color: #000000 !important;
+}
+.commHead {
+  display: flex;
+  margin-left: 4px;
+}
+.commCon > * {
+  margin-right: 6px;
+  margin-left: 6px;
+}
 /* mobile device */
 @media only screen and (min-width: 300px) and (max-width: 750px) {
   body {
@@ -69,70 +92,64 @@ a:visited {
   }
 }
 
-
-
-
 /*  Story Element*/
 
-  .story_element{
-    display: grid;
-    grid-template-areas:
+.story_element {
+  display: grid;
+  grid-template-areas:
     "num_arrow title title title "
     "nix_space lower lower lower";
-    justify-content: left;
+  justify-content: left;
+}
 
-  }
+.story_element > .num_arrow {
+  grid-area: num_arrow;
+  width: 40px;
+  max-width: 40px;
+}
 
-  .story_element > .num_arrow {
-    grid-area: num_arrow;
-    width:40px;
-    max-width: 40px;
+.story_element > .nix_space {
+  grid-area: nix_space;
+  width: 40px;
+  max-width: 40px;
+}
 
-  }
+.story_element > .title {
+  grid-area: title;
+}
 
-  .story_element > .nix_space {
-    grid-area: nix_space;
-    width:40px;
-    max-width: 40px;
-  }
+.story_element > .lower {
+  grid-area: lower;
+  font-size: x-small;
+}
+.votearrow {
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  margin: 3px 2px 6px;
+  background-size: 10px;
+  background: url(https://news.ycombinator.com/triangle.svg),
+    linear-gradient(transparent, transparent) no-repeat;
+  background-repeat: no-repeat;
+  background-size: 13px;
+}
 
-  .story_element > .title {
-    grid-area: title;
-
-  }
-
-  .story_element > .lower {
-    grid-area: lower;
-    font-size:x-small
-
-  }
-  .votearrow {
-    width: 10px;
-    height: 10px;
-    border: 0px;
-    margin: 3px 2px 6px;
-    background-size: 10px;
-    background: url(https://news.ycombinator.com/triangle.svg) ,linear-gradient(transparent, transparent) no-repeat;
-    background-repeat: no-repeat;
-    background-size: 13px;
-  }
-
-  .footerSpace{
-    display:flex;
-    flex-direction: column;
-    background-color: var(--eggshell);
-    margin: 0;
-    justify-content: center;
-    align-content: center;
-  }
-  #root{
-    background-color: var(--eggshell);
-  }
-  .footerContent{
-    justify-self: center;
-    align-self: center;
-  }
-  .footerSearch{
-    justify-self: center;
-    align-self: center;
-  }
+.footerSpace {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--eggshell);
+  margin: 0;
+  justify-content: center;
+  align-content: center;
+}
+#root {
+  background-color: var(--eggshell);
+}
+.footerContent {
+  justify-self: center;
+  align-self: center;
+}
+.footerSearch {
+  justify-self: center;
+  align-self: center;
+}

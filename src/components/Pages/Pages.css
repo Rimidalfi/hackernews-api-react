@@ -104,8 +104,8 @@ a:visited {
 
 .story_element > .num_arrow {
   grid-area: num_arrow;
-  width: 40px;
-  max-width: 40px;
+  width: 45px;
+  max-width: 45px;
 }
 
 .story_element > .nix_space {

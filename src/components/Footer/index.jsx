@@ -45,15 +45,15 @@ export default function Footer({setMainComponent}) {
 
       <div className="footerSpace">
         <ul className="footerContent">
-          <a name="Guidelines" onClick={()=> setMainComponent(<NewsGuidelines/>)}>Guidelines</a>
+          <a name="Guidelines" href="https://news.ycombinator.com/newsguidelines.html">Guidelines</a>
           <span> | </span> 
-          <a name="FAQ" onClick={()=> setMainComponent(<NewsFAQ/>)}>FAQ</a>
+          <a name="FAQ" href="https://news.ycombinator.com/newsfaq.html">FAQ</a>
           <span> | </span> 
           <a name="Lists" onClick={()=> {switchToLists()}}>Lists</a>
           <span> | </span> 
           <a name="API" href="https://github.com/HackerNews/API">API</a>
           <span> | </span> 
-          <a name="Security" onClick={()=> setMainComponent(<Security/>)}>Security</a>
+          <a name="Security" href="https://news.ycombinator.com/security.html">Security</a>
           <span> | </span> 
           <a name="Legal" href="https://www.ycombinator.com/legal/" >Legal</a>
           <span> | </span> 

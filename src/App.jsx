@@ -6,10 +6,10 @@ import { Component } from "react";
 import { useState, createContext } from "react";
 import React from "react";
 
+export const MainContext = React.createContext();
+
 function App() {
   const [mainComponent, setMainComponent] = useState(<Homepage />);
-
-  const setMainCompContext = createContext(setMainComponent);
 
   const mainComp = React.cloneElement(mainComponent, {
     setMainComponent: setMainComponent,
@@ -17,7 +17,11 @@ function App() {
 
   return (
     <>
-      <MainLayout setMainComponent={setMainComponent}>{mainComp}</MainLayout>
+        <MainContext.Provider value={setMainComponent}>
+          <MainLayout setMainComponent={setMainComponent}>{mainComp}</MainLayout>
+        </MainContext.Provider>
+
+
     </>
   );
 }

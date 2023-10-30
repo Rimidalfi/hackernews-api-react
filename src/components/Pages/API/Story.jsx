@@ -3,10 +3,11 @@ import UserPage from "./UserPage";
 import React from "react";
 import { useContext } from "react";
 import setMainCompContext from "../../../App";
+import {MainContext}  from "../../../App";
 
-
-export default function Story({listNumber,item,setMainComponent})
+export default function Story({listNumber,item})
 {
+    const setMainComponent = useContext(MainContext)
 
     const baseURL = extractBaseURL(item.url)
 

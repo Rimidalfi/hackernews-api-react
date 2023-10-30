@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import fetchData from "../Utils/fetchData"
 import FetchAsk from "./API/Ask";
 
-export default function Homepage({setMainComponent}) {
+export default function PageNew({setMainComponent}) {
 
   const [frontpageItems,setFrontpageItems] = useState();
   const [pageNumber,setPageNumber] = useState(0);
@@ -14,7 +14,7 @@ export default function Homepage({setMainComponent}) {
   useEffect(() => {
     if(needFetch)
     {
-      fetchData(`http://hn.algolia.com/api/v1/search?tags=front_page&page=${pageNumber}&hitsPerPage=30`,handleFetchedData);
+      fetchData(`http://hn.algolia.com/api/v1/search_by_date?tags=(story,poll,show_hn,ask_hn)&page=${pageNumber}&hitsPerPage=30`,handleFetchedData);
     }
   });
 
@@ -50,12 +50,7 @@ export default function Homepage({setMainComponent}) {
     <div>
       <br/>
         {needFetch ? Loading :Stories}
-       
+       <a name="more" onClick={() => {showMore()}}>More</a>
     </div>
   );
 }
-
-
-
-
-

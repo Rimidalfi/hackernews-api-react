@@ -1,5 +1,7 @@
 import "./Header.css";
 import Homepage from "../Pages/Homepage";
+import Homepage2 from "../Pages/Homepage2";
+import PageNew from "../Pages/PageNew";
 import AskList from "../Pages/AskList";
 import Comments from "../Pages/API/Comments";
 import React from "react";
@@ -22,13 +24,13 @@ export default function Header({ setMainComponent }) {
             <img className="LogoIcon" src="../src/assets/y18.svg" />
           </a>
         </div>
-        <li className="fontLogo" onClick={() => switchTo(<Homepage/>)}>
+        <li className="fontLogo" onClick={() => switchTo(<Homepage2/>)}>
           <a href="#" className="fontLogo">
             Hacker News
           </a>
         </li>
         <div className="menuContainer">
-          <li className="menuPoint">
+          <li className="menuPoint" onClick={() => switchTo(<PageNew/>)}>
             <a href="#">new</a>
           </li>
           |
